@@ -15,6 +15,8 @@
 		F37327D12BCAA6E3009B1FE6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37327D02BCAA6E3009B1FE6 /* GameScene.swift */; };
 		F37327D32BCAA6E6009B1FE6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37327D22BCAA6E6009B1FE6 /* GameViewController.swift */; };
 		F37327D92BCABF85009B1FE6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37327D82BCABF85009B1FE6 /* MainView.swift */; };
+		F37327DD2BCAC591009B1FE6 /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37327DC2BCAC591009B1FE6 /* ImageAssets.swift */; };
+		F37327E32BCAC998009B1FE6 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37327E22BCAC998009B1FE6 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		F37327D02BCAA6E3009B1FE6 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F37327D22BCAA6E6009B1FE6 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F37327D82BCABF85009B1FE6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F37327DC2BCAC591009B1FE6 /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
+		F37327E22BCAC998009B1FE6 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +66,11 @@
 			isa = PBXGroup;
 			children = (
 				F37327D42BCAAAFA009B1FE6 /* Application */,
+				F37327D72BCAAEF9009B1FE6 /* Game */,
 				F37327D52BCAAE98009B1FE6 /* ViewControllers */,
 				F37327DA2BCABF8A009B1FE6 /* Views */,
-				F37327D72BCAAEF9009B1FE6 /* Game */,
+				F37327DB2BCAC57D009B1FE6 /* Utilities */,
+				F37327E12BCAC986009B1FE6 /* Extensions */,
 				F37327D62BCAAEC1009B1FE6 /* Resources */,
 			);
 			path = SwipeCircle;
@@ -111,6 +117,22 @@
 				F37327D82BCABF85009B1FE6 /* MainView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F37327DB2BCAC57D009B1FE6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F37327DC2BCAC591009B1FE6 /* ImageAssets.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F37327E12BCAC986009B1FE6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F37327E22BCAC998009B1FE6 /* UIImage.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +206,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F37327D32BCAA6E6009B1FE6 /* GameViewController.swift in Sources */,
+				F37327E32BCAC998009B1FE6 /* UIImage.swift in Sources */,
 				F37327D92BCABF85009B1FE6 /* MainView.swift in Sources */,
+				F37327DD2BCAC591009B1FE6 /* ImageAssets.swift in Sources */,
 				F373279C2BCAA42A009B1FE6 /* ViewController.swift in Sources */,
 				F37327982BCAA42A009B1FE6 /* AppDelegate.swift in Sources */,
 				F37327D12BCAA6E3009B1FE6 /* GameScene.swift in Sources */,

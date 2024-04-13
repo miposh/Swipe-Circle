@@ -10,18 +10,24 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    private let homeView = MainView()
+    
+    override func loadView() {
+        self.view = homeView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
+        homeView.onPlayButtonTapped = { [weak self] in
+            print("ты котик")
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        homeView.frame = view.bounds
     }
 
     override var prefersStatusBarHidden: Bool {
