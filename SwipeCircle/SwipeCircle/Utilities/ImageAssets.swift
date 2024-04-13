@@ -16,5 +16,11 @@ struct ImageAsset: RawRepresentable {
     static let mainScreenPlayButton = ImageAsset(rawValue: "PlayNowButtonImage")
     static let mainScreenPrivacyButton = ImageAsset(rawValue: "PrivacyButtonImage")
     static let mainScreenDoodletoon = ImageAsset(rawValue: "DoodletoonImage")
+    
+    // MARK: – Loading View Images
+    
+    static let loadingScreenBackground = ImageAsset(rawValue: "BGImage")
+    static let loadingScreenCircle = ImageAsset(rawValue: "loadingCircleImage")
+    static let loadingScreenText = ImageAsset(rawValue: "loadingTextImage")
 
 }

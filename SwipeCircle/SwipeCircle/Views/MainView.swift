@@ -9,6 +9,7 @@ import UIKit
 
 class MainView: UIView {
     
+    // MARK: – Properties
     
     private var backImageView: UIImageView!
     private var onPlayButton: UIButton!
@@ -26,6 +27,8 @@ class MainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: — Setup UI
     
     private func setupUI() {
         createBackImageView()
@@ -72,6 +75,7 @@ class MainView: UIView {
         addSubview(doodletoon)
     }
     
+    // MARK: – Button action
     
     @objc private func didTapPlayButton() {
         onPlayButtonTapped?()
@@ -83,20 +87,23 @@ class MainView: UIView {
     
     //MARK: - Layout
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         setFrameMainImageView()
-        setFrameConstrainsPlayButton()
-        setFrameConstrainsPrivacyButton()
-        setFrameDoodletoon()
+        setConstraintsPlayButton()
+        setConstraintsPrivacyButton()
+        setConstraintsDoodletoon()
     }
     
     private func setFrameMainImageView() {
         backImageView.frame = window?.frame ?? .zero
+        NSLayoutConstraint.activate([
+            backImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+        ])
     }
     
-    private func setFrameConstrainsPlayButton() {
+    private func setConstraintsPlayButton() {
         NSLayoutConstraint.activate([
             onPlayButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             onPlayButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 100),
@@ -105,7 +112,7 @@ class MainView: UIView {
         ])
     }
     
-    private func setFrameConstrainsPrivacyButton() {
+    private func setConstraintsPrivacyButton() {
         NSLayoutConstraint.activate([
             onPrivacyButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             onPrivacyButton.centerYAnchor.constraint(equalTo: onPlayButton.bottomAnchor, constant: 30),
@@ -114,7 +121,7 @@ class MainView: UIView {
         ])
     }
     
-    private func setFrameDoodletoon() {
+    private func setConstraintsDoodletoon() {
         NSLayoutConstraint.activate([
             doodletoon.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             doodletoon.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -100),

@@ -11,7 +11,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    private let homeView = MainView()
+    private let homeView = LoadingView()
     
     override func loadView() {
         self.view = homeView
@@ -20,13 +20,16 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeView.onPlayButtonTapped = { [weak self] in
-            print("ты котик")
-        }
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         homeView.frame = view.bounds
     }
 
