@@ -17,6 +17,7 @@ class LoadingView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupUI()
     }
     
@@ -33,7 +34,6 @@ class LoadingView: UIView {
         backImageView.contentMode = .scaleAspectFill
         let image = UIImage(asset: .loadingScreenBackground)
         backImageView.image = image
-        backImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(backImageView)
     }
     
@@ -42,7 +42,6 @@ class LoadingView: UIView {
         loadingCircleImageView.contentMode = .scaleAspectFit
         let image = UIImage(asset: .loadingScreenCircle)
         loadingCircleImageView.image = image
-        loadingCircleImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(loadingCircleImageView)
     }
     
@@ -51,7 +50,6 @@ class LoadingView: UIView {
         loadingTextImageView.contentMode = .scaleAspectFit
         let image = UIImage(asset: .loadingScreenText)
         loadingTextImageView.image = image
-        loadingTextImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(loadingTextImageView)
     }
     
@@ -59,36 +57,50 @@ class LoadingView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setConstraintsBackImageView()
-        setConstraintsCircleImageView()
-        setConstraintsTextImageView()
+        setFrameBackImageView()
+        setFrameCircleImageView()
+        setFrameTextImageView()
     }
     
-    private func setConstraintsBackImageView() {
-        NSLayoutConstraint.activate([
-            backImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            backImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            backImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            backImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+    private func setFrameBackImageView() {
+        backImageView.frame = self.frame
     }
     
-    private func setConstraintsCircleImageView() {
-        NSLayoutConstraint.activate([
-            loadingCircleImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            loadingCircleImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 20),
-            loadingCircleImageView.widthAnchor.constraint(equalToConstant: 100),
-            loadingCircleImageView.heightAnchor.constraint(equalToConstant: 100)
-        ])
+    private func setFrameCircleImageView() {
+        let centerX = self.bounds.width / 2
+        let centerY = self.bounds.height / 2 + 20 // +20 для смещения вниз
+        let size: CGFloat = 100
+        let offset: CGFloat = size / 2
+        
+        loadingCircleImageView.frame = CGRect(x: centerX - offset, y: centerY - offset, width: size, height: size)
     }
     
-    private func setConstraintsTextImageView() {
-        NSLayoutConstraint.activate([
-            loadingTextImageView.heightAnchor.constraint(equalToConstant: 50),
-            loadingTextImageView.widthAnchor.constraint(equalToConstant: 150),
-            loadingTextImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            loadingTextImageView.centerYAnchor.constraint(equalTo: self.loadingCircleImageView.bottomAnchor, constant: 20)
-        ])
+    private func setFrameTextImageView() {
+        let centerX = self.bounds.width / 2
+        let centerY = loadingCircleImageView.frame.maxY + 20
+        
+        loadingTextImageView.frame = CGRect(x: centerX - 75, y: centerY - 25, width: 150, height: 50)
+    }
+    
+    // MARK: – Animation
+    
+    func animateBall() {
+        let centerX = self.bounds.width / 2
+        let centerY = self.bounds.height / 2 + 20 // +20 для смещения вниз
+        let size: CGFloat = 100
+        let offset: CGFloat = size / 2
+        
+        UIView.animate(withDuration: 1.2, delay: 0.5, options: .curveEaseOut) {
+            self.loadingCircleImageView.frame = CGRect(x: centerX - offset, y: centerY - offset - 100, width: size, height: size)
+        } completion: {_ in
+            UIView.animate(withDuration: 1.2, delay: 0.1, options: .curveEaseInOut) {
+                self.loadingCircleImageView.frame = CGRect(x: centerX - offset, y: centerY - offset, width: size, height: size)
+            } completion: { _ in
+                UIView.animate(withDuration: 1.2, delay: 0.1, options: .curveEaseInOut) {
+                    self.loadingCircleImageView.frame = CGRect(x: centerX - offset, y: centerY - offset - 50, width: size, height: size)
+                }
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

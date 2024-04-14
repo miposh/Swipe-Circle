@@ -11,7 +11,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    private let homeView = LoadingView()
+    private let homeView = HomeView()
     
     override func loadView() {
         self.view = homeView
@@ -19,13 +19,6 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
     }
     
     override func viewWillLayoutSubviews() {

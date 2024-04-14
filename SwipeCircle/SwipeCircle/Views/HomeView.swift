@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainView: UIView {
+class HomeView: UIView {
     
     // MARK: – Properties
     
