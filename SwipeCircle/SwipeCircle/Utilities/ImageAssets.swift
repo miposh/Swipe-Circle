@@ -1,9 +1,9 @@
 import UIKit
+import SpriteKit
 
 struct ImageAsset: RawRepresentable {
     
     typealias RawValue = String
-    
     let rawValue: String
     
     init(rawValue: String) {
@@ -24,3 +24,4 @@ struct ImageAsset: RawRepresentable {
     static let loadingScreenText = ImageAsset(rawValue: "loadingTextImage")
 
 }
+
